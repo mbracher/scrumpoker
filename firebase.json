@@ -1,0 +1,31 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "function": "sveltekit"
+      }
+    ],
+    "predeploy": ["npm run build"]
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "emulators": {
+    "ui": {
+      "enabled": false
+    },
+    "hosting": {
+      "port": 8685
+    },
+    "functions": {
+      "port": 5001
+    }
+  }
+}
