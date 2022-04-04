@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "build",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -9,7 +9,8 @@
     "rewrites": [
       {
         "source": "**",
-        "function": "sveltekit"
+        "destination": "/index.html"
+        // "function": "sveltekit"
       }
     ],
     "predeploy": ["npm run build"]

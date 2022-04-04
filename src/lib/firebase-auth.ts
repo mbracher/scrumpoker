@@ -2,8 +2,10 @@ import { readable } from 'svelte/store'
 import { browser } from '$app/env'
 import type { Auth, User } from "firebase/auth"
 
+
 const createAuth = () => {
   let auth: Auth
+
 
   const { subscribe } = readable<User>(undefined, set => {
     let unsubscribe = () => {}
@@ -12,6 +14,7 @@ const createAuth = () => {
       if (browser) {
         const { firebaseApp } = await import('./firebase-app')
         const { getAuth, onAuthStateChanged } = await import('firebase/auth')
+        
 
         auth = getAuth(firebaseApp)
 
@@ -52,4 +55,4 @@ const createAuth = () => {
   }
 }
 
-export const auth = createAuth()
+export const user = createAuth()

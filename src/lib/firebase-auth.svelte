@@ -1,24 +1,13 @@
 <script lang="ts">
-    import { auth } from './firebase-auth'
-  </script>
+  import { user } from './firebase-auth'
+</script>
   
-  <style>
-    button {
-      padding: 6px 12px;
-      border: none;
-      border-radius: 4px;
-      color: #fff;
-      background-color: #93f;
-      margin-right: 12px;
-    }
-  </style>
-  
-  {#if $auth === undefined}
+  {#if $user === undefined}
     Checking auth status &hellip;
   {:else}
-    {#if $auth === null}
-      <button on:click={() => auth.signInWith('google')}>Sign In with Google</button>(visitor)
+    {#if $user === null}
+      <button on:click={() => user.signInWith('google')}>Sign In with Google</button>
     {:else}
-      <button on:click={() => auth.signOut()}>Sign Out</button>{$auth.displayName} ({$auth.email})
+      <button on:click={() => user.signOut()}>Sign Out</button>{$user.displayName} ({$user.email}) {$user.uid}
     {/if}
   {/if}
